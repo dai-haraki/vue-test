@@ -1,0 +1,14 @@
+# nodejs
+# vue-cli
+version: '3'
+services:
+  node:
+    container_name: node 
+    build: .
+    volumes:
+      - ./.profile:/root/.profile:ro
+      - ./admin:/usr/app/
+      - /usr/app/node_modules # node_modulesは、コンテナ側のものを利用する
+    ports:
+      - "8080:8080"
+    tty: true

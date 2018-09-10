@@ -1,0 +1,35 @@
+2018年の最先端バックエンドエンジニアに必要なスキルについて考えてみました。
+https://qiita.com/poly_soft/items/fb649573c19b7a5c0227#docker
+
+いまさらDockerに入門したので分かりやすくまとめます
+https://qiita.com/gold-kou/items/44860fbda1a34a001fc1
+
+Using Docker Compose for NodeJS Development
+https://blog.codeship.com/using-docker-compose-for-nodejs-development/
+
+Dockerでnginx＋node.jsのSPA構成を試す
+https://qiita.com/KeitaMoromizato/items/bfc3e22dae47211eff4f
+
+
+# vagrantでnpmを利用する場合、シンボリックリンクやpathの最大長(windows)でエラーが出る。
+# -no-bin-linksオプションでも失敗するため、npm_modulesをコンテナ内に入れることにする。
+# npmモジュールを追加する際は、毎回イメージの作成を行う。
+
+# webpack-dev-serverのホットリロードが機能しない。
+# vagrant
+
+Webpack dev server reloadがバーチャルボックスで動作しない
+https://stackoverrun.com/ja/q/9282316
+
+・vagrantでrsync、rsyncバックの設定を行う
+【Vagrant使ってる人向け】Ruby on Railsでwebpack-dev-serverがrecompileしてくれないときの対処【暫定版】
+https://mass-min.com/archives/647
+
+vagrant rsync-auto
+
+・webpackをポーリング設定にする
+
+watch_options:
+      poll: 500
+
+・nginxを使う
