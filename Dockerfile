@@ -14,3 +14,7 @@ WORKDIR /usr/app
 # vue-cliで作成したものをコピーした後にpackage.jsonからnpmインストールを行う
 COPY admin .
 RUN npm install
+
+# ログインシェルの設定ファイル
+COPY profile /root/.profile
+ENV ENV="/root/.profile"
