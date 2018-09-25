@@ -9,9 +9,12 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.network "forwarded_port", guest: 3306, host: 3306
   config.vm.network "private_network", ip: "192.168.33.10"
-  config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync_auto: true
+
+  config.vm.synced_folder ".", "/vagrant"
+  #config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync_auto: true
   
-  # config.vm.provider "virtualbox" do |vb|
-  #   vb.memory = "1024"
-  # end
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "1024"
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
+  end
 end
