@@ -1,6 +1,6 @@
 FROM node:8.11.4-alpine
 
-RUN npm install vue-cli -g
+# RUN npm install vue-cli -g
 
 # vue init webpack [プロジェクト名]
 # いったんここで作成したものをホスト側に持ってくる。
