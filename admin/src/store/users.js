@@ -4,11 +4,18 @@ export default {
   namespaced: true,
   state: {
     keyword: '',
-    users: []
+    users: [],
+    user: null
   },
   getters: {
-    get(state) { // store.getters.get
+    getUsers(state) { // store.getters.get
+      console.log('getUsers');
       return state.users;
+    },
+    getUser(state) {
+      console.log('getUser');
+      console.log(state.user);
+      return state.user;
     },
     getKeyword(state) {
       return state.keyword;
@@ -19,6 +26,9 @@ export default {
       console.log('mutations');
       state.users = payload;
     },
+    setUser(state, payload) {
+      state.user = payload;
+    },
     clear(state) {
       state.users = {}
     },
@@ -28,6 +38,7 @@ export default {
   },
   actions: { // methodsと同様、api呼び出し
     search({ commit }, id) {
+      console.log(id);
       const x = parseInt(id, 10);
       if (isNaN(x)) {
         console.log('nan');
@@ -36,6 +47,16 @@ export default {
       const data = users.find(x);
       console.log(data);
       commit('set', [data])
+    },
+    getById({ commit }, id) {
+      console.log(id);
+      const x = parseInt(id, 10);
+      if (isNaN(x)) {
+        console.log('nan');
+        return;
+      }
+      const data = users.find(x);
+      commit('setUser', data);
     },
     load({ commit }) { // store.dispatch('load', id)
       console.log('actions');

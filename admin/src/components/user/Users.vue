@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text">
+    <input type="text" v-model="keyword">
     <input type="button" v-on:click="search" value="検索">
     <ul>
       <li v-for="{ id, name } in list" :key="id">
@@ -11,16 +11,21 @@
 </template>
 
 <script>
-import users from '@/api/user/users.js'
 export default {
+  data: function() {
+    return {
+      keyword: ''
+    }
+  },
   computed: {
-    list: () => users.fetch()
+    list() {
+      return this.$store.getters['users/getUsers'];
+    }
   },
   methods: {
-    search: () => {
-      console.log("xx");
-      // return users.find(1);
-      // console.log(this.list);
+    search() {
+      console.log(this.keyword);
+      this.$store.dispatch('users/search', this.keyword);
     }
   }
 }

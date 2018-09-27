@@ -15,17 +15,23 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     {
+      name: 'root',
       path: '/',
       component: Home
     },
     {
+      name: 'users',
       path: '/users',
       component: Users
     },
     {
+      name: 'user-detail',
       path: '/users/:id',
-      component: User
+      component: User,
+      props: route => ({ id: parseInt(route.params.id) })
     }
   ]
 })
 export default router
+
+// TODO: メタフィールド、認証、リダイレクト、プログラム遷移

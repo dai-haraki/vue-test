@@ -12,6 +12,9 @@ const database = [
     find(id) {
       return database.find(el => el.id === id)
     },
+    search(keyword) {
+      return database;
+    },
     asyncFind(id, callback) {
       setTimeout(() => {
         callback(database.find(el => el.id === id))
