@@ -1,10 +1,21 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/users">User</router-link>
-    </nav>
-    <!-- ここにパスと一致したコンポーネントが埋め込まれる -->
-    <router-view/>
+    <Header/>
+    <router-view name='sidebar'/>
+    <router-view default/>
+    <Footer/>
   </div>
 </template>
+
+<script>
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
+
+export default {
+  name: 'app',
+  components: {
+    Header,
+    Footer
+  }
+}
+</script>

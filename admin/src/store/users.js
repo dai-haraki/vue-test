@@ -49,7 +49,7 @@ export default {
       commit('set', [data])
     },
     getById({ commit }, id) {
-      console.log(id);
+      console.log('getById: ' + id);
       const x = parseInt(id, 10);
       if (isNaN(x)) {
         console.log('nan');

@@ -2,9 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 // 以下、コンポーネント
+import Sidebar from '@/components/common/Sidebar'
 import Home from '@/components/Home'
 import Users from '@/components/user/Users'
 import User from '@/components/user/User'
+import UserSidebar from '@/components/user/UserSidebar'
 
 Vue.use(VueRouter)
 
@@ -17,18 +19,28 @@ const router = new VueRouter({
     {
       name: 'root',
       path: '/',
-      component: Home
+      components: {
+        default: Home,
+        sidebar: Sidebar
+      }
     },
     {
       name: 'users',
       path: '/users',
-      component: Users
+      components: {
+        default: Users,
+        sidebar: UserSidebar
+      }
     },
     {
       name: 'user-detail',
       path: '/users/:id',
-      component: User,
-      props: route => ({ id: parseInt(route.params.id) })
+      // component: User,
+      components: {
+        default: User,
+        sidebar: UserSidebar
+      },
+      props: { default: route => ({ id: parseInt(route.params.id) }), sidebar: null }
     }
   ]
 })
