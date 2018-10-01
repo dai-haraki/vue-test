@@ -1,4 +1,4 @@
-import users from '@/api/user/users.js'
+import userCharacters from '@/api/user/user-characters.js'
 
 export default {
   namespaced: true,
@@ -9,11 +9,11 @@ export default {
   },
   getters: {
     getUsers(state) { // store.getters.get
-      console.log('getUsers');
+      console.log('getuserCharacters');
       return state.users;
     },
     getUser(state) {
-      console.log('getUser');
+      console.log('getuserCharacter');
       console.log(state.user);
       return state.user;
     },
@@ -45,7 +45,7 @@ export default {
         console.log('nan');
         return;
       }
-      const data = users.find(x);
+      const data = userCharacters.find(x);
       console.log(data);
       commit('set', [data])
     },
@@ -56,7 +56,7 @@ export default {
         console.log('nan');
         return;
       }
-      const data = users.find(x);
+      const data = userCharacters.find(x);
       commit('setUser', data);
     },
     load({ commit }) { // store.dispatch('load', id)

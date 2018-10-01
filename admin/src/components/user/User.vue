@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <table v-if="user">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>名前</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="table-responsive" v-if="user">&nbsp;
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+    </tbody>
+  </table>
+</div>
 </template>
 
 <script>
@@ -33,5 +31,10 @@ export default {
     this.$store.dispatch('users/getById', this.id);
     this.user = this.$store.getters['users/getUser'];
   },
+  beforeDestroy() {
+    // 親ルートを移動するときにデータを破棄する TODO: サイドバーの移動で毎回破棄/検索を行ってしまう
+    console.log("haki.")
+    // this.$store.dispatch('users/destroy', this.id);
+  }
 }
 </script>
