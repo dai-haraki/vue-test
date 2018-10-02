@@ -1,6 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+// import Home from './views/Home.vue';
+import Home from './components/Home.vue';
+import Sidebar from './components/common/Sidebar.vue';
+
+import Users from './components/user/Users.vue';
+import User from './components/user/User.vue';
+import UserSidebar from './components/user/UserSidebar.vue';
+import UserCharacters from './components/user/UserCharacters.vue';
 
 Vue.use(Router);
 
@@ -11,15 +18,36 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      components: {
+        default: Home,
+        sidebar: Sidebar
+      },
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      name: 'users',
+      path: '/users',
+      components: {
+        default: Users,
+        sidebar: Sidebar
+      }
     },
+    {
+      name: 'user-detail',
+      path: '/users/:id',
+      components: {
+        default: User,
+        sidebar: UserSidebar
+      },
+      props: { default: route => ({ id: parseInt(route.params.id) }), sidebar: route => ({ id: parseInt(route.params.id) }) }
+    },
+    {
+      name: 'user-characters',
+      path: '/users/:id/user-characters',
+      components: {
+        default: UserCharacters,
+        sidebar: UserSidebar
+      },
+      props: { default: route => ({ id: parseInt(route.params.id) }), sidebar: route => ({ id: parseInt(route.params.id) }) }
+    }
   ],
 });

@@ -78,8 +78,10 @@ yarn global add @vue/cli
 # npm install -g @vue/cli
 
 コンテナからホストへのコピー
-docker cp 66c0aa43b283:/usr/app/admin2 .
-docker cp 66c0aa43b283:/usr/app/admin2/node_modules .
+docker cp 66c0aa43b283:/usr/app .
+docker cp 66c0aa43b283:/usr/app/node_modules .
+docker cp 66c0aa43b283:/usr/app/package.json .
+docker cp 66c0aa43b283:/usr/app/package-lock.json .
 
 tsでmoduleが無いと怒られるのはnode_modulesが無いため？
 vscode上でlocalのnode_modulesを参照している
@@ -92,4 +94,11 @@ https://qiita.com/tanakachang/items/11dab5309b64b4f64119
 苦肉の策で違う所に作った後にリンクを張ることで対処する
 ln -s ~/node_modules node_modules
 
+・コンテナ内にnode_modulesを入れない方向でもいいかもしれない
 
+
+■TS版との違い
+・main.(js, ts)
+・APP.vue
+
+http://oita.oika.me/2018/08/05/post-1248/
