@@ -29,6 +29,9 @@
 </template>
 
 <script>
+import net from '../../common/net.js'
+import Request from '../../common/request.js';
+
 export default {
   data: function() {
     return {
@@ -42,6 +45,13 @@ export default {
   },
   methods: {
     search() {
+      const uri = 'xxx';
+      const req = new Request(uri);
+      // net.get(req);
+      req.data = {"session_id": "", "temporary_common_key": ""};
+      const res = net.post(req);
+      // console.log(res);
+      
       console.log(this.keyword);
       this.$store.dispatch('users/search', this.keyword);
     }

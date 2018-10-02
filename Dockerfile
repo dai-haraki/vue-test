@@ -10,12 +10,13 @@ FROM node:8.11.4-alpine
 # webpack-dev-serverのホットリロードが機能しない。
 # vagrant
 
-#npm i --save bootstrap-vue
-#npm i --save @fortawesome/fontawesome-svg-core
-#npm i --save @fortawesome/free-solid-svg-icons
-#npm i --save @fortawesome/vue-fontawesome
-#npm i --save @fortawesome/free-brands-svg-icons
-#npm i --save @fortawesome/free-regular-svg-icons
+#npm install --save bootstrap-vue
+#npm install --save @fortawesome/fontawesome-svg-core
+#npm install --save @fortawesome/free-solid-svg-icons
+#npm install --save @fortawesome/vue-fontawesome
+#npm install --save @fortawesome/free-brands-svg-icons
+#npm install --save @fortawesome/free-regular-svg-icons
+#npm install --save axios
 
 WORKDIR /usr/app
 # vue-cliで作成したものをコピーした後にpackage.jsonからnpmインストールを行う
