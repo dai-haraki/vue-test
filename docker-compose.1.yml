@@ -6,8 +6,8 @@ services:
     build: .
     container_name: node 
     volumes:
-      - ./admin:/usr/app/admin
-      - /usr/app/admin/node_modules # node_modulesは、コンテナ側のものを利用する
+      - ./admin:/usr/app/
+      - /usr/app/node_modules # node_modulesは、コンテナ側のものを利用する
     ports:
       - "8080:8080"
     tty: true
