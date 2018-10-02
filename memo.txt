@@ -18,6 +18,14 @@ https://qiita.com/KeitaMoromizato/items/bfc3e22dae47211eff4f
 # webpack-dev-serverのホットリロードが機能しない。
 # vagrant
 
+# vue init webpack [プロジェクト名]
+# いったんここで作成したものをホスト側に持ってくる。
+# vagrantでnpmを利用する場合、シンボリックリンクやpathの最大長(windows)でエラーが出る。
+# -no-bin-linksオプションでも失敗するため、npm_modulesをコンテナ内に入れることにする。
+# npmモジュールを追加する際は、毎回イメージの作成を行う。
+# webpack-dev-serverのホットリロードが機能しない。
+# vagrant
+
 Webpack dev server reloadがバーチャルボックスで動作しない
 https://stackoverrun.com/ja/q/9282316
 
@@ -41,3 +49,56 @@ https://qiita.com/s0tter/items/877008651565978d1fca
 ・vagrant上でwebpack-dev-serverを動作させるのが大変なので
 ポーリングでやってみる
 
+
+# vue cli 3.0
+公式
+https://cli.vuejs.org/guide/
+Vue CLI 3.0 で TypeScript な Vue.js プロジェクトをつくってみる
+https://qiita.com/nunulk/items/7e20d6741637c3416dcd
+TypeScriptでVue.jsを書く – Vue CLIを使った開発のポイントを紹介
+https://mae.chab.in/archives/60167
+
+npmから乗り換えてわかったYarnの4つのメリット
+https://qiita.com/tonkotsuboy_com/items/0242928ab32794d11f76
+
+yarn使ってみる？
+
+# docker
+docker build -t node .
+docker build --no-cache=true -t node .
+
+TypeScript
+
+npm install -g yarn
+yarn global add @vue/cli
+
+# vue-cliをバージョンアップする
+# npm rm -g vue-cli
+# npm list -g --depth=0
+# npm install -g @vue/cli
+
+コンテナからホストへのコピー
+docker cp 66c0aa43b283:/usr/app .
+docker cp 66c0aa43b283:/usr/app/node_modules .
+docker cp 66c0aa43b283:/usr/app/package.json .
+docker cp 66c0aa43b283:/usr/app/package-lock.json .
+
+tsでmoduleが無いと怒られるのはnode_modulesが無いため？
+vscode上でlocalのnode_modulesを参照している
+
+sudo npm install --no-bin-link --no-optional
+
+Windows 7環境でのVirtualBox（vagrant）の共有フォルダーのトラブル2つ
+https://qiita.com/tanakachang/items/11dab5309b64b4f64119
+
+苦肉の策で違う所に作った後にリンクを張ることで対処する
+ln -s ~/node_modules node_modules
+
+・コンテナ内にnode_modulesを入れない方向でもいいかもしれない
+
+
+■TS版との違い
+・main.(js, ts)
+・APP.vue
+
+http://oita.oika.me/2018/08/05/post-1248/
