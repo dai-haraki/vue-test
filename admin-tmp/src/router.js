@@ -1,8 +1,5 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-// import Home from './views/Home.vue'
-
-// TODO: コンポーネントとviewsのみを明確に分けているみたい
+import VueRouter from 'vue-router'
 
 // 以下、コンポーネント
 import Sidebar from '@/components/common/Sidebar'
@@ -13,11 +10,13 @@ import User from '@/components/user/User'
 import UserSidebar from '@/components/user/UserSidebar'
 import UserCharacters from '@/components/user/UserCharacters'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
+/**
+ * ルーター
+ * ルーティングを行う
+ */
+const router = new VueRouter({
   routes: [
     {
       name: 'root',
@@ -55,3 +54,6 @@ export default new Router({
     }
   ]
 })
+export default router
+
+// TODO: メタフィールド、認証、リダイレクト、プログラム遷移

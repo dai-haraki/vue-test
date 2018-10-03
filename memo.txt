@@ -41,3 +41,6 @@ https://qiita.com/s0tter/items/877008651565978d1fca
 ・vagrant上でwebpack-dev-serverを動作させるのが大変なので
 ポーリングでやってみる
 
+
+vscode jsconfig
+https://code.visualstudio.com/docs/languages/jsconfig
