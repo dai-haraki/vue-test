@@ -6,9 +6,6 @@ import App from '@/App.vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-// import bContainer from 'bootstrap-vue/es/components/layout/container';
-// import { Layout } from 'bootstrap-vue/es/components';
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'

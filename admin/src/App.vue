@@ -1,31 +1,30 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+<div id="app">
+  <Header/>
+  <div style="padding:10px 0 0 0"></div>
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <router-view name='sidebar'/>
+      </div>
+      <div class="col-sm-9">
+        <router-view default/>
+      </div>
     </div>
-    <router-view/>
+    <Footer/>
   </div>
+</div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+export default {
+  name: 'app',
+  components: {
+    Header,
+    Footer
+  }
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>

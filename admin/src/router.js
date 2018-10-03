@@ -1,6 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+// import Home from './views/Home.vue'
+
+// TODO: コンポーネントとviewsのみを明確に分けているみたい
+
+// 以下、コンポーネント
+import Sidebar from '@/components/common/Sidebar'
+import Home from '@/components/Home'
+
+import Users from '@/components/user/Users'
+import User from '@/components/user/User'
+import UserSidebar from '@/components/user/UserSidebar'
+import UserCharacters from '@/components/user/UserCharacters'
 
 Vue.use(Router)
 
@@ -9,17 +20,38 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      name: 'root',
       path: '/',
-      name: 'home',
-      component: Home
+      components: {
+        default: Home,
+        sidebar: Sidebar
+      }
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      name: 'users',
+      path: '/users',
+      components: {
+        default: Users,
+        sidebar: Sidebar
+      }
+    },
+    {
+      name: 'user-detail',
+      path: '/users/:id',
+      components: {
+        default: User,
+        sidebar: UserSidebar
+      },
+      props: { default: route => ({ id: parseInt(route.params.id) }), sidebar: route => ({ id: parseInt(route.params.id) }) }
+    },
+    {
+      name: 'user-characters',
+      path: '/users/:id/user-characters',
+      components: {
+        default: UserCharacters,
+        sidebar: UserSidebar
+      },
+      props: { default: route => ({ id: parseInt(route.params.id) }), sidebar: route => ({ id: parseInt(route.params.id) }) }
     }
   ]
 })
