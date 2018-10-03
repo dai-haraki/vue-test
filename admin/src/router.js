@@ -5,7 +5,7 @@ import Router from 'vue-router'
 // TODO: コンポーネントとviewsのみを明確に分けているみたい
 
 // 以下、コンポーネント
-import Sidebar from '@/components/common/Sidebar'
+import Sidebar from '@/components/common/Sidebar.vue'
 import Home from '@/components/Home'
 
 import Users from '@/components/user/Users'
